@@ -27,9 +27,10 @@ public class ProductController {
 	  model.addAttribute("products",data);
 	  return "product";
   }
+  
   @RequestMapping(value = "/coffee",method = RequestMethod.GET)
 	public String spJdbc(ModelMap model) {		
-    
+      
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("applicationContext.xml");  
 		    CoffeeDAO dao=(CoffeeDAO)ctx.getBean("cfdao"); 
 		    JdbcTemplate tm=(JdbcTemplate)ctx.getBean("myTemplate");
@@ -39,4 +40,5 @@ public class ProductController {
 		model.addAttribute("coffees", list);
 		return "coffee";
 	}
+
 }
